@@ -1,0 +1,58 @@
+/***strech the page***/
+html, body, .App, #root{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  }
+  
+
+.main{
+  display: table ;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  }
+
+
+/***main screen***/
+.above-nav{
+  display: flex;
+}
+
+
+.main-page{
+  /*should be position right to the chater list, the below semm to do it*/
+  display: inline-block;
+  background: lightblue;
+  padding: auto;
+}
+
+
+.nav, nav{
+  /*need to be in the bottom the code below will also push it right*/
+  display: table-row;
+  vertical-align:bottom;
+  background: red;
+  height: 40px;
+}
+
+
+/***side list***/
+
+.chater-list{
+  width:200px;
+  display: inline-block;
+  background: greenyellow;
+  height:100%;
+}
+
+.list-header{
+  background: green;
+}
+
+li{
+  border-width: 1px;
+  border-color: grey;
+}
