@@ -8,8 +8,8 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/',registrateRouter);
-app.use('/',uploadS3Router);
+app.use(registrateRouter);
+app.use(uploadS3Router);
 
 // error handler
 app.use('/', (req, res) => {
