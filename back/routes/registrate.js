@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 const database = [];
-const secret = "secret"
+const secret = "secret";
 
 router.post('/signup', (req, res) => {
   var details = req.body;
@@ -11,7 +11,7 @@ router.post('/signup', (req, res) => {
   const user = database.filter(({ email }) => email === details.email);
   if (user.length > 0) res.send(null);
   else {
-    const token = jwt.sign(details, secret)
+    const token = jwt.sign(details, secret);
     details.token = token;
     database.push(details);
     res.send({user:details});
@@ -23,7 +23,7 @@ router.post('/login-name', (req, res) => { // getting user name and password
   const user = database.filter(({ email }) => email === details.email);
   console.log("connected with username user: ", user, "database", database);
   if (user.length > 0 && details.password === user[0].password){
-    const token = jwt.sign(user[0], secret)
+    const token = jwt.sign(user[0], secret);
     res.send({"user":user[0], "token":token});
   } 
   else res.send(null);

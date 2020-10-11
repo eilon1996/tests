@@ -1,40 +1,55 @@
-import React from 'react';
-import Registrate from './Registrate' 
+import React, { useState } from 'react';
+import Registrate from './Registrate'
 import UploadImg from './UploadImg'
-import Chat from './Chat' 
-import {Switch, Route ,withRouter} from 'react-router'
+import Chat from './Chat'
+import { Switch, Route, withRouter } from 'react-router'
 import { Link } from 'react-router-dom';
 
 const Main = () => {
-    // for the examplewe willl have a blank page with h1 title
-    // and we will have a navbar in the bottum of the screen 
-    // on the left we will have options to open new chats
-    return(
-    <div className="main">
-        <div className="above-nav">
-            <div className="chater-list ">
-                <ul>
-                    <li className="list-header">users list</li>
-                    <li>user 1</li>
-                    <li>user 2</li>
-                    <li>user 3</li><br/><br/>
-                <Link to="/">Registrate</Link><br/>
-                <Link to="/upload">Upload</Link>
-                </ul>
-            
+
+    const [isSideBarOpen, setIsSideBarOpen] = useState(false)
+    const [chatId, setChatId] = useState(-1)
+
+    const ContectList = () => {
+        //create dummy contacts
+        const arr = [...Array(50).keys()];
+        return (
+            <ul>
+                {arr.map((i) => (
+                    <li onClick={() => setChatId(i)}>user {i}</li>
+                ))}
+            </ul>
+        );
+    }
+
+    return (
+        <div className={"main-" + (isSideBarOpen ? "expand" : "collapse") + "-" + (chatId >= 0 ? "expand" : "collapse")}>
+            <div className={"side-bar-" + (isSideBarOpen ? "expand" : "collapse") + "-" + (chatId >= 0 ? "expand" : "collapse")}>
+                <ContectList />
+                <Link to="/">Registrate</Link><br />
+                <Link to="/upload">Upload</Link><br />
+                <Link to="/chat">chat</Link>
             </div>
-            <div className="main-page">
-                <h1>main</h1>
-                <Switch>
-                    <Route path="/upload" component={() => <UploadImg/>}/>
-                    <Route path="/" component={() => <Registrate/>}/>
-                </Switch>
+
+            <div className={"chat-"+ (chatId >= 0 ? "expand" : "collapse")}>
+                <header className="chat-header">
+                    <span>user name</span>
+                    <button className="chat-button">=</button>
+                    <button className="chat-button" 
+                    onClick={() => {setChatId(-1); setIsSideBarOpen(false)}}>x</button>
+                </header>
+                chat
             </div>
+            <Switch>
+                <Route path="/upload" component={() => <UploadImg />} />
+                <Route path="/" component={() => <Registrate />} />
+                <Route path="/chat" component={() => <Chat />} />
+            </Switch>
+            <nav className="nav">
+                <button className="open-chat" onClick={() => setIsSideBarOpen(!isSideBarOpen)}>open</button>
+                <span className="nav-the-rest">navbar</span>
+            </nav>
         </div>
-        <nav className="nav">
-            <span>navbar</span>
-        </nav>
-    </div>
     );
 }
 

@@ -1,0 +1,78 @@
+@media screen and (max-width: 550px) {
+
+
+  /*there will be no option to open both chat end side bar on phone
+    one will automaticly closed to leave room to the other*/
+  .main-collapse-collapse {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "route-page"
+      "nav";
+  }
+  .main-expand-collapse {
+    grid-template-columns: 300px 1fr;
+    grid-template-areas:
+      "side-bar route-page"
+      "nav nav";
+  }
+
+  .main-collapse-expand, .main-expand-expand {
+    grid-template-rows: 1fr 35px;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas:
+      "route-page route-page"
+      "nav nav";
+  }
+
+
+  .side-bar-expand-collapse {
+    display: grid;
+  }
+  .side-bar-collapse-collapse,
+   .side-bar-collapse-expand,
+    .side-bar-expand-expand{
+    display: none;
+  }
+
+  .route-page {
+    grid-area: route-page;
+    grid-template-columns: 10% auto 10%;
+  }
+
+  form {
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .buttons {
+    grid-row: 4 / 6;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .nav {
+    display: grid;
+    grid-area: nav;
+    grid-template-columns: 45px 1fr;
+  }
+
+  .open-chat {
+    display: grid;
+    grid-column: 1 / 2;
+    color: white;
+    background: darkred;
+    border-color: darkred;
+    border-radius: 0px;
+  }
+
+
+.chat-expand{
+  left: 0px;
+  height: 50%;
+}
+.chat-collapse{
+  display: none;
+}
+  .nav-the-rest {
+    grid-column: 2 /3;
+  }
+}

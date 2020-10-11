@@ -1,58 +1,55 @@
 /***strech the page***/
-html, body, .App, #root{
+html,
+body,
+.App,
+#root {
   width: 100%;
   height: 100%;
   margin: 0px;
-  padding: 0px;
-  }
-  
+  padding: 1px;
+}
 
-.main{
-  display: table ;
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  }
-
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 /***main screen***/
-.above-nav{
+.above-nav {
   display: flex;
+  flex-grow: 1;
 }
 
-
-.main-page{
+.main-page {
   /*should be position right to the chater list, the below semm to do it*/
-  display: inline-block;
   background: lightblue;
   padding: auto;
+  flex-grow: 1;
+  height: 5000px;
 }
 
-
-.nav, nav{
+.nav {
   /*need to be in the bottom the code below will also push it right*/
-  display: table-row;
-  vertical-align:bottom;
+  vertical-align: bottom;
   background: red;
   height: 40px;
+  bottom: 0;
+  position: sticky;
 }
-
 
 /***side list***/
 
-.chater-list{
-  width:200px;
-  display: inline-block;
+.side-bar {
+  width: 200px;
   background: greenyellow;
-  height:100%;
 }
 
-.list-header{
+.list-header {
   background: green;
 }
 
-li{
+li {
   border-width: 1px;
   border-color: grey;
 }

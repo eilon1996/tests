@@ -8,11 +8,12 @@ const Chat = (props) => {
                the chat it self are rectangels with messages, stick to the side of the chater or the user depand who send the massage 
                and an input text in the bottom
     */
-   return(
-    <div>
-        chat
-    </div>
-   );
+    return (
+        <div className="div-chat">
+            chat
+        </div>
+
+    );
 }
 
 export default Chat;
